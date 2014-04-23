@@ -5,45 +5,9 @@ require('checkuser.php');
 // use GET params to determine which operation.
 // Default op is login
 // GET param 'dest' is used to redirect user after successful login
-function outputForm()
-{
-    if (empty($_GET) || !isset($_GET['op']) || $_GET['op']==='login') 
-        $value = 'login';
-    else
-        $value = 'create';
-    if (isset($_GET['dest']))
-    {
-        $destination = $_GET['dest'];
-        $dest = "?dest=$destination";
-    }
-    else
-        $dest = "";
-echo <<<FORMSTUFF
-<form action='createuser.php$dest' method='post'>
-username: <input type=text name=username><br>
-password: <input type=password name=password><br>
-<input type=submit name='submit' value='$value'><br>
-</form>
-<a href=index.php>home</a>
-FORMSTUFF;
-}
 
-// code for processing form data
-// Option 1: display blank form
-if (empty($_POST))
-{
-    mustBeSecure();
-?>
-<!doctype html>
-<html>
-<body>
-<?php outputForm(); ?>
-</body>
-</html>
-<?php
-} else {
     // Option 2: create a new user
-    if ($_POST['submit'] == 'create')
+if ($_POST['submit'] == 'create')
     {
         if (userAlreadyExists($_POST['username']))
         {
@@ -52,7 +16,7 @@ if (empty($_POST))
 <html>
 <body>
 User already exists. Please pick a new username.<br>
-<?php outputForm(); ?>
+
 </body>
 </html>
 <?php
@@ -82,18 +46,18 @@ User already exists. Please pick a new username.<br>
                 header("Location: $dest");
             }
             else
-                header('Location: index.html');
+                header('Location: secure.php');
         } else {
 ?>
 <!doctype html>
 <html>
 <body>
 Invalid username/password<br>
-<?php outputForm(); ?>
+
 </body>
 </html>
 <?php
         }
     }
-}
+
 ?>

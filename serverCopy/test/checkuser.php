@@ -1,7 +1,7 @@
 <?php
-session_set_cookie_params(0, '/~phoward/csci250/securesite', '', true, true);
+session_set_cookie_params(0, '/~flame/test/', '', true, true);
 session_start();
-define ("FILENAME", "/home/phoward/html_data/passwords.txt");
+define ("FILENAME", "/home/flame/html_data/passwords.txt");
 require 'PasswordHash.php';
 
 // return hash of the PW

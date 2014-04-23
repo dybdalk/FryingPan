@@ -7,19 +7,22 @@ require('checkuser.php');
 // GET param 'dest' is used to redirect user after successful login
 
     // Option 2: create a new user
+
+
 if ($_POST['submit'] == 'create')
     {
-        if(strlen($_POST['username'])< 4) 
-            echo "Invalid User Name. Must be at least 4 characters<br>";
+        if(strlen($_POST['username'])< 8) 
+            echo "Invalid User Name. Must be at least 8 characters<br>";
         if (userAlreadyExists($_POST['username']))
         {
 ?>
 <!doctype html>
 <html>
-<body>
+
 User already exists. Please pick a new username.<br>
+
 </body>
-</html>
+
 <?php
         } else {
             $password = $_POST['password'];
@@ -34,8 +37,15 @@ User already exists. Please pick a new username.<br>
                 or die('Unable to update pw file');
             fclose($file)
                 or die('Unable to update pw file');
+                echo "<script type='text/javascript'> alert('Account Created! Press OK to Continue') </script>";
             markUserLoggedIn($_POST['username']);
-            header('Location: productList.html');
+            
+            
+            
+            
+
+            
+            header('Location: index.html');
         }
     } elseif ($_POST['submit'] == 'login') {
         // OPTION 3: user is attempting login
@@ -53,7 +63,7 @@ User already exists. Please pick a new username.<br>
         } else {
 ?>
 <!doctype html>
-<html>
+
 <body>
 Invalid username/password<br>
 
