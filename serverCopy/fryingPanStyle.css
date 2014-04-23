@@ -81,6 +81,16 @@ body {
 	background-color: #444444;
 }
 
+#headbar a:link{
+	text-decoration: underline;
+	color:#dddddd;
+}
+
+#headbar a:visited{
+	text-decoration: underline;
+	color:#dddddd;
+}
+
 #bigname{
 	position: relative;
 	margin-left: 10px;
@@ -89,6 +99,14 @@ body {
 	color: #dddddd;
 	font-size: 30px;
 
+}
+
+bigname a:link{
+	text-decoration: none;
+}
+
+bigname a:visited{
+	text-decoration: none;
 }
 
 #cart{
@@ -101,15 +119,6 @@ body {
 	right: 220px;
 }
 
-#headbar a:link{
-	text-decoration: underline;
-	color:#dddddd;
-}
-
-#headbar a:visited{
-	text-decoration: underline;
-	color:#dddddd;
-}
 
 #logout{
 	position: absolute;
