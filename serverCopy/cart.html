@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<?php
+include('cart.php');
+	session_start();
+?>
+	<head>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="fryingPanStyle.css">
+		<link href="http://fonts.googleapis.com/css?family=Arvo:400,400italic" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type="text/css">
+		<title>Out of the Frying Pan</title>
+	</head>
+<body>
+
+	<div id="headbar">
+		<div id="bigname">
+		<a href="ProductList.html">Out of the Frying Pan</a>
+		</div>
+		<div id="cart">
+			<a href="cart.html">Cart</a>
+		</div>
+		<div id="logout">
+			Welcome,  
+		<?php if(!empty($_Session)){
+
+		echo $_SESSION(['$user']) 
+		}
+		else{
+			echo "guest";
+		} ?>
+		<a href="index.html"> Log out</a>
+		</div>
+	</div>
+
+	<h1> Your Cart</h1><p>
+
+	<div id="items">
+
+	<div class="item">
+		<a href="description.html"><img src="grill.jpg" alt="item"></a>
+		<div class="descrip">
+			<a href="description.html">This is a description of an electric stove</a>
+		</div>
+		<div class="price">
+			$5.00
+		</div>
+		Number of electric stoves: 
+		<select id="elec" name="elec">
+			<option value="electric0">0</option>
+			<option value="electric1">1</option>
+			<option value="electric2">2</option>
+			<option value="electric3">3</option>
+			<option value="electric4">4</option>
+			<option value="electric5">5</option>
+	    </select>
+	    <form>
+	    	<button type="submit" name="electric" onclick="addi1($_POST('elec'))">Add to cart</button>
+	    	<button type="submit" name="elec-" onclick="addi1($_POST(-'elec'))">Remove from cart</button>
+	    	Number of electric stoves in your cart: <?php echo $item1.sum(); ?>
+	    </form>
+
+	</div>
+
+	<p><div class="item">
+		<a href="description.html"><img src="grill.jpg" alt="item"></a>
+		<div class="descrip">
+			<a href="description.html">This is a description of a propane stove</a>
+		</div>
+		<div class="price">
+			$5.00
+		</div>
+		Number of propane stoves:
+			<select id="prop" name="propane">
+			<option value="p0">0</option>
+			<option value="p1">1</option>
+			<option value="electric2">2</option>
+			<option value="electric3">3</option>
+			<option value="electric4">4</option>
+			<option value="electric5">5</option>
+	    </select>
+	    <form>
+			<button type="submit" name="propane" onclick="addi2($_POST('prop'))">Add to cart</button>
+			<button type="submit" name="propane-" onclick="addi2($_POST(-'prop'))">Remove from cart</button>
+			 Number of propane stoves in your cart: <?php echo $item2.sum(); ?>
+		</form>
+		</div>
+	
+
+	<p><div class="item">
+		<a href="description.html"><img src="grill.jpg" alt="item"></a>
+		<div class="descrip">
+			<a href="description.html">This is a description of our cookware</a>
+		</div>
+		<div class="price">
+			$5.00
+		</div>
+		Number of cookware items:
+			<select id="ck" name="cookw">
+			<option value="p0">0</option>
+			<option value="p1">1</option>
+			<option value="electric2">2</option>
+			<option value="electric3">3</option>
+			<option value="electric4">4</option>
+			<option value="electric5">5</option>
+	    </select>
+		<form>
+			<button type="submit" name="cook" onclick="addi3($_POST('ck'))">Add to cart</button>
+			<button type="submit" name="cook-" onclick="addi3($_POST(-'ck'))">Remove from cart</button>
+			 Number of cookware items in your cart: <?php echo $item3.sum(); ?>
+		</form>
+	</div>
+
+</div>
+	<div class="item">
+		Total amount owed: <?php $total = ($item1.sum() + $item2.sum() + $item3.sum()) * 5;
+		echo $total; ?>
+	</div>
+		
+<div class="footer">
+		<a href="underConstruction.html">Contact Us</a>
+		<a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="productList.html">Shop Products</a>
+        <a href="account.html">Account Settings</a>
+        <a href="underConstruction.html">Check Out</a>
+</div>
+</body>
+</html>
