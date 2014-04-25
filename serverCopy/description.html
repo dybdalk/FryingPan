@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php include('cart.php'); ?>
 	<head>
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 		<link rel="stylesheet" type="text/css" href="fryingPanStyle.css">
@@ -13,10 +14,18 @@
 		<div id="bigname">
 		Out of the Frying Pan
 		<div id="cart">
-			<a href="underConstruction.html">Cart</a>
+			<a href="cart.html">Cart</a>
 		</div>
 		<div id="logout">
-			Welcome, User. <a href="index.html">Log out</a>
+			Welcome,  
+		<?php if(!empty($_Session)){
+
+		echo $_SESSION(['$user']) 
+		}
+		else{
+			echo "guest";
+		} ?>
+		<a href="index.html"> Log out</a>
 		</div>
 		</div>
 	</div>
@@ -43,7 +52,9 @@ This is a much longer description than the one on this list page. It goes more i
 </div>
 
 <div id="add">
-	<a href="underConstruction">Add to cart</a>
+	<form>
+		<button type="button" name="electric" onclick="addi1($item1['$item1.count() +1'] = 1)">Add to cart</button>
+	</form>
 </div>
 <div id="return">
 <a href="productList.html">Return to Browse</a>
