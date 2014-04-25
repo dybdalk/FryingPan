@@ -75,23 +75,15 @@ body {
 
 #headbar{
 	position: absolute;
+<<<<<<< HEAD
 	float:top;
+=======
+>>>>>>> parent of a04bdf0... Revert "I dont know how to git"
 	left:0px;
 	height: 50px;
 	width: 100%;
 	background-color: #444444;
 }
-
-#headbar a:link{
-	text-decoration: underline;
-	color:#dddddd;
-}
-
-#headbar a:visited{
-	text-decoration: underline;
-	color:#dddddd;
-}
-
 
 #bigname{
 	position: relative;
@@ -100,16 +92,7 @@ body {
 	font-family: "Oswald", sans-serif;
 	color: #dddddd;
 	font-size: 30px;
-	text-decoration: none;
 
-}
-
-#bigname a:link{
-	text-decoration: none;
-}
-
-#bigname a:visited{
-	text-decoration: none;
 }
 
 #cart{
@@ -122,7 +105,15 @@ body {
 	right: 220px;
 }
 
+#headbar a:link{
+	text-decoration: underline;
+	color:#dddddd;
+}
 
+#headbar a:visited{
+	text-decoration: underline;
+	color:#dddddd;
+}
 
 #logout{
 	position: absolute;
@@ -285,7 +276,6 @@ input[type="submit"]:hover{
 
 #oops {
 	position: relative;
-	height: 100%;
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
